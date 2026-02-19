@@ -1,0 +1,33 @@
+{
+  "name": "bank_management_system",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/Omkarmakani0003/bank_management_system#readme",
+  "bugs": {
+    "url": "https://github.com/Omkarmakani0003/bank_management_system/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Omkarmakani0003/bank_management_system.git"
+  },
+  "license": "ISC",
+  "author": "omkar makani",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.6",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "express-session": "^1.19.0",
+    "mongoose": "^9.2.1",
+    "nodemon": "^3.1.11",
+    "zod": "^4.3.6"
+  }
+}

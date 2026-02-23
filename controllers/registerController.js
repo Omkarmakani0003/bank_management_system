@@ -6,14 +6,15 @@ const apiError = require('../utils/apiError')
 exports.register = asyncHandler(
 
     async(req,res)=>{
-        const { username, email, password} = req.body
+        const { username, email, password } = req.body
         
         if(!username.trim() || !email || !password){
             throw new apiError(400,"all fields are required")
         }
-        const data = [
-            username, email, password
-        ]
+
+        if(username.trim() == 'system'){
+            throw new apiError(400,`You can not use this username '${username.trim()}' `)
+        }
 
         const ExistingUser = await User.findOne({email})
 
@@ -21,7 +22,13 @@ exports.register = asyncHandler(
             throw new apiError(400,"Email is already taken")
         }
 
-        return res.status(200).json(new apiResponse(200,"register success",ExistingUser))
+        const NewUser = await User.create({
+            username, 
+            email, 
+            password
+        })
+
+        return res.status(201).json(new apiResponse(201,"register success",NewUser))
     }  
 )
 

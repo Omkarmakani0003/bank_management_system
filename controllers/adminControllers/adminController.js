@@ -6,16 +6,18 @@ exports.userlist = asyncHandler(async(req,res)=>{
 
     const userlist = await User.aggregate([
         {$match:{'role':'customer'}},
-    //     {$lookup:{
-    //         from: '',
-    //         localField: '',
-    //         foreignField: '',
-    //         as: ''
-    //      }
-    //    }
+        {
+            $lookup:{
+                from: 'accounts',
+                localField: '_id',
+                foreignField: 'userId',
+                as: 'account'
+            }
+        },
         {
             $project:{
-                'refreshToken' : 0
+                'refreshToken' : 0,
+                'password': 0
             }
         }
     ])
@@ -25,3 +27,8 @@ exports.userlist = asyncHandler(async(req,res)=>{
     return res.status(200).json(new apiResponse(200,"Use list fetch successfully",userlist))
     
 })
+
+
+// exports.accountRequest = asyncHandler(async(req,res)=>{
+    
+// })

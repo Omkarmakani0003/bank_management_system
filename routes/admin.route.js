@@ -15,6 +15,7 @@ router.post('/login',authenticationController.login)
 router.use(auth('admin'))
 router.get('/user-list',adminController.userlist)
 
+
 // router.post('account-request',)
 
 

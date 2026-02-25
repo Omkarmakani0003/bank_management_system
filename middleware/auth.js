@@ -14,8 +14,9 @@ exports.auth = (AllowedRole) => {
             }
 
             const decoded = await jwt.verify(token,process.env.JWT_ACCESS_SECRET)
-            
-            req.user = decoded
+            const user = await User.findById(decoded._id)
+            if(!user) throw new apiError(404,"user not found")
+            req.user = user
 
             if(AllowedRole !== req.user.role){
                 throw new apiError(403,"access denied you have not a permission.")

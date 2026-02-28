@@ -9,12 +9,11 @@ const router = express.Router()
 
 router.post('/login',authenticationController.login)
 
-// router.get('/test',auth('admin'),async(req,res)=>{
-//     return res.status(200).json(new apiResponse(200,req.user))
-// })
 router.use(auth('admin'))
 router.get('/user-list',adminController.userlist)
-
+router.get('/requests',adminController.accountRequest)
+router.put('/accept-requests',adminController.acceptRequest)
+router.post('add-balance',adminController.initBalance)
 
 // router.post('account-request',)
 

@@ -8,7 +8,7 @@ const apiError = require('../utils/apiError')
 exports.accountRequest = asyncHandler(async(req,res)=>{
 
     const accountNo =  parseInt("311010311" + Math.floor(Math.random() * 999999) * 10)
-    
+    console.log(req.user)
     const AccountAlreadyCreated = await Account.findById(req.user._id)
 
     if(AccountAlreadyCreated) throw new apiError(401,"you have already an account")

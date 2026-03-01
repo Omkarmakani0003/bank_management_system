@@ -10,10 +10,10 @@ const accountSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         require: true,
     },
-    balance:{
-        type: Number,
-        default : 0
-    },
+    // balance:{
+    //     type: Number,
+    //     default : 0
+    // },
     opningDate:{
         type: Date,
         default: Date.now()

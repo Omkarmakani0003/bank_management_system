@@ -13,9 +13,9 @@ router.use(auth('admin'))
 router.get('/user-list',adminController.userlist)
 router.get('/requests',adminController.accountRequest)
 router.put('/accept-requests',adminController.acceptRequest)
-router.post('add-balance',adminController.initBalance)
+router.post('/init-balance',adminController.initBalance)
 
-// router.post('account-request',)
+
 
 
 module.exports = router

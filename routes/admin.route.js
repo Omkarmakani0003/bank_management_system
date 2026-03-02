@@ -7,7 +7,7 @@ const apiError = require('../utils/apiError')
 const {auth} = require('../middleware/auth')
 const router = express.Router()
 
-router.post('/login',authenticationController.login)
+router.post('/login',authenticationController.adminLogin)
 
 router.use(auth('admin'))
 router.get('/user-list',adminController.userlist)

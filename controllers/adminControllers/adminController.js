@@ -100,7 +100,7 @@ exports.initBalance = asyncHandler(async(req,res)=>{
         status:'pending'
     }],{session}))[0]
   
-   const debit = await Ledger.create([{
+   await Ledger.create([{
         transactionId: transaction._id,
         accountId: systemAccount._id,
         amount:balance,

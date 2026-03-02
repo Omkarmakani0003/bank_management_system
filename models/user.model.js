@@ -2,6 +2,9 @@ const mongoose = require('mongoose')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const dotenv = require('dotenv').config()
+const {Account} = require('../models/account.model')
+const {Transaction} = require('../models/transactions.model')
+const {Ledger} = require('../models/ledger.model')
 
 
 const userSchema = new mongoose.Schema({

@@ -7,11 +7,11 @@ const accountSchema = new mongoose.Schema({
 
     accountNo: {
         type: Number,
-        require: true,
+        required: true,
     },
     userId: {
         type: mongoose.Schema.Types.ObjectId,
-        require: true,
+        required: true,
     },
 
     opningDate:{
@@ -67,8 +67,9 @@ accountSchema.methods.getBalance = async function(){
         return 0
     }
 
-    return balance
+    return balance[0].balance
 }
 
 
 module.exports.Account = mongoose.model("account",accountSchema)
+ 

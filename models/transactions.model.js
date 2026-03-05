@@ -13,23 +13,23 @@ const transactionSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "account",
         index: true,
-        require: true,
+        required: true,
     },
 
     receiverId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "account",
         index: true,
-        require: true,
+        required: true,
     },
     amount:{
         type: Number,
-        require: true
+        required: true
     },
     status:{
         type: String,
         enum:['pending','success','faild'],
-        require: true,
+        required: true,
         default: 'pending'
     }
 },

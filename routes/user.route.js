@@ -15,8 +15,8 @@ router.post('/login',authenticationController.userLogin)
 router.use(auth('customer'))
 router.post('/account-request',userController.accountRequest)
 router.post('/transaction',transactionController.transaction)
-
-
+router.get('/get-balance',userController.balance)
+// router.post('/statement',)
 
 
 module.exports = router

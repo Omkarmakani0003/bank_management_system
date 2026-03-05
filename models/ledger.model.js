@@ -6,32 +6,37 @@ const ledgerSchema = new mongoose.Schema({
     transactionId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "transaction",
-        require: true,
+        required: true,
         index: true,
+        immutable: true
     },
 
     accountId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "account",
-        require: true,
+        required: true,
         index: true,
+        immutable: true
     },
     
     amount:{
         type: Number,
-        require: true
+        required: true,
+        immutable: true
     },
 
     status:{
         type: String,
         enum:['credit','debit'],
-        require: true,
+        required: true,
         index: true,
+        immutable: true
     }
 },
  {timestamps : true}
 )
 
+ledgerSchema.index({accountId: 1, status: 1})
 
 function ledgerModification(){
     throw new apiError(400,"you can not modify ledgers")

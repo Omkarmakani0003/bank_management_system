@@ -11,17 +11,17 @@ const userSchema = new mongoose.Schema({
 
     username: {
         type: String,
-        require: true,
+        required: true,
         trim: true
     },
     email: {
         type: String,
-        require: true,
+        required: true,
         unique: [true,'Email is already taken'] 
     },
     password:{
         type: String,
-        require: true,
+        required: true,
         select: false
     },
     role:{
